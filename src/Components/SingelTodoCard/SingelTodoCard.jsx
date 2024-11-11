@@ -8,7 +8,7 @@ import {
   setToggelFormeInpute
 } from "../../redux/Slices/Todo/todoSlice";
 
-export default function SingelTodoCard(props) {
+export default function SingelTodoCard({id,name}) {
   const Dispatch = useDispatch();
 
   const todos = useSelector((state) => state.todos.todos);
@@ -16,7 +16,7 @@ export default function SingelTodoCard(props) {
     Dispatch(toggelTodoDone(id));
   }
   const todo = todos.find((todo) => {
-    return todo.id === props.id;
+    return todo.id === id;
   });
   function removeTodo(id) {
     Dispatch(deleteTodo(id));
@@ -33,13 +33,13 @@ export default function SingelTodoCard(props) {
             todo.done ? "line-through font-semibold " : "font-semibold"
           }`}
         >
-          {props.name}
+          {name}
         </h3>
         <ul className=" flex justify-between items-center gap-3 ">
           <li>
             <BsCheckSquare
               onClick={() => {
-                makeTodoDone(props.id);
+                makeTodoDone(id);
               }}
               className={`${
                 todo.done
@@ -52,7 +52,7 @@ export default function SingelTodoCard(props) {
           <li>
             <FaEdit
               onClick={() => {
-                toggelInputeForm({id:props.id,name:props.name,done:false});
+                toggelInputeForm({id:id,name:name,done:false});
               }}
               className="cursor-pointer text-yellow-500 hover:text-yellow-700 "
               size={20}
@@ -61,7 +61,7 @@ export default function SingelTodoCard(props) {
           <li>
             <BsTrashFill
               onClick={() => {
-                removeTodo(props.id);
+                removeTodo(id);
               }}
               className="cursor-pointer text-red-500  hover:text-red-700 "
               size={20}

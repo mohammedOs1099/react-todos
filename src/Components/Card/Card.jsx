@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import AddTodoForm from "../AddTodoForm/AddTodoForm";
-import SingelTodoCard from "../singelTodoCard/singelTodoCard";
+
 import UpdateTodoForm from "./../UpdateTodoForm/UpdateTodoForm";
 import image from "./../../assets/employees-shortage.jpg";
 import { clearTodos, setCurrentPag } from "../../redux/Slices/Todo/todoSlice";
 import { useState } from "react";
 import { selectPagesTodo } from "../../redux/Slices/Todo/assets";
 import ReactPaginate from "react-paginate";
+import SingelTodoCard from './../SingelTodoCard/SingelTodoCard';
 
 export default function Card() {
   const [searchTerm, setSearchTerm] = useState("");
