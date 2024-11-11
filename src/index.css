@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+    background: linear-gradient(to right, #fdba74, #fdba74, #fcd34d);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
