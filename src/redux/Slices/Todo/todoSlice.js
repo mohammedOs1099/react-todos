@@ -24,11 +24,13 @@ export const todoSlice = createSlice({
       }
     },
     deleteTodo: (state, action) => {
+       state.toggelFormInput = true;
       state.todos = state.todos.filter(todo => {
         return todo.id !== action.payload;
       });
     },
     clearTodos: state => {
+      state.toggelFormInput =true
       state.todos = [];
     },
     setToggelFormeInpute: (state, action) => {
